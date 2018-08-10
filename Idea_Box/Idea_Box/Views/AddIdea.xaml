@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Idea_Box.Views.AddIdea"
+              Title="Add Idea"
+             BindingContext="{Binding IdeaViewModel, Source={StaticResource locator}}"
+             >
+    <ContentPage.Content>
+        <StackLayout  Padding="10">
+
+        
+           
+              
+                <Frame CornerRadius="10"  
+                       OutlineColor="DeepSkyBlue" 
+                     
+                       VerticalOptions="CenterAndExpand"
+                       BackgroundColor="LightSkyBlue" 
+                       >
+                    <StackLayout>
+                        <StackLayout  Orientation="Vertical" Margin="0,0,0,0">
+                            <Label Text="Idea Title" Style="{StaticResource AddIdeaLabels}"  />
+                            <Entry x:Name="NameLabel"  Text="{Binding Idea.Title,Mode=TwoWay}"   />
+                        </StackLayout>
+
+                        <StackLayout  Orientation="Vertical" Margin="0,10,0,0">
+                        <Label Text="Idea Description"  Style="{StaticResource AddIdeaLabels}" />
+                            <Editor  x:Name="commtt" Text="{Binding Idea.Description,Mode=TwoWay}" HeightRequest="60"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+            
+           
+          
+
+            <StackLayout Orientation="Horizontal">
+                <Image Source="x.png" HeightRequest="45" WidthRequest="45" HorizontalOptions="StartAndExpand"  Margin="20,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+            Command="{Binding GotoIdeasListCommand}"
+            CommandParameter="Image1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="New Idea " TextColor="#87CEFA" HorizontalOptions="CenterAndExpand" Font="Bold" FontSize="Large"/>
+                <Image Source="yes.png"  HeightRequest="45" WidthRequest="45" HorizontalOptions="EndAndExpand" Margin="0,0,20,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+            Command="{Binding SaveIdeaCommand}"
+            CommandParameter="Image1" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

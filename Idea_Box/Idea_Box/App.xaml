@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Idea_Box.ViewModels"
+             x:Class="Idea_Box.App">
+	<Application.Resources>
+        <ResourceDictionary>
+            <viewmodels:ViewModelLocator x:Key="locator" />
+
+            <Style x:Key="AddIdeaLabels" TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="FontSize" Value="Medium"/>
+               
+            </Style>
+
+
+            <Style x:Key="IdeasListViewStyle" TargetType="ListView">
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="RowHeight" Value="88"/>
+                <Setter Property="SeparatorVisibility" Value="Default" />
+            </Style>
+            <DataTemplate x:Key="IdeasListViewItemTemplate">
+                <ViewCell >
+                    <Grid BackgroundColor="LightSkyBlue" Padding="5">
+                        <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                        <Label Text="{Binding Title}" TextColor="White" />
+                        <Label Text="{Binding Description}" TextColor="White" Grid.Row="1"/>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+	</Application.Resources>
+</Application>

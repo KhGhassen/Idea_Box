@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Idea_Box.ViewModels"
+             xmlns:fab="clr-namespace:FAB.Forms;assembly=FAB.Forms"
+             xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
+             x:Class="Idea_Box.Views.IdeaList"
+              Title="Ideas List"
+             BindingContext="{Binding IdeaViewModel, Source={StaticResource locator}}">
+    <ContentPage.Content>
+
+        <Grid>
+            <ListView
+                Grid.Column="0" Grid.Row="0"
+                x:Name="Idea_List"
+                ItemsSource="{Binding Ideas ,Mode=TwoWay}"
+                Style="{StaticResource IdeasListViewStyle}"
+                ItemTemplate="{StaticResource IdeasListViewItemTemplate}"
+                CachingStrategy="RecycleElement"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                />
+            <Image
+                Grid.Column="0" Grid.Row="0"
+                x:Name="AddIdeaButton" 
+                   Source="AddIdea" 
+                HeightRequest="55" 
+                WidthRequest="55" 
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="EndAndExpand"
+                Margin="0,0,20,30">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+            Command="{Binding AddIdeaCommand}"
+            CommandParameter="Image1" />
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+        <!--<StackLayout>
+      
+                <ListView
+                x:Name="Idea_List"
+                ItemsSource="{Binding Ideas ,Mode=TwoWay}"
+                Style="{StaticResource IdeasListViewStyle}"
+                ItemTemplate="{StaticResource IdeasListViewItemTemplate}"
+                CachingStrategy="RecycleElement" />
+          
+            
+
+            <controls:FloatingActionButton 
+                x:Name="FAB"
+                HorizontalOptions="CenterAndExpand" 
+                WidthRequest="50"
+                HeightRequest="50" 
+                VerticalOptions="CenterAndExpand" 
+                Image="ic_add_white.png" 
+                ButtonColor="#03A9F4" 
+          
+               >
+                <controls:FloatingActionButton.GestureRecognizers>
+                    <TapGestureRecognizer
+            Command="{Binding AddIdeaCommand}"
+            CommandParameter="Image1" />
+                </controls:FloatingActionButton.GestureRecognizers>
+            </controls:FloatingActionButton>
+
+        </StackLayout>-->
+    </ContentPage.Content>
+</ContentPage>
